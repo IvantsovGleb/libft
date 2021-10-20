@@ -10,7 +10,7 @@ static int	ft_check_overflow(int base, int offset)
 {
 	int	int_max;
 
-	int_max = ;
+	int_max = 2147483647;
 	return (base > int_max / 10
 		|| (base == int_max / 10 && offset >= int_max % 10));
 }
