@@ -2,12 +2,22 @@ static size_t	ft_nbrlen(int n)
 {
 	size_t	nlen;
 
-	nlen = 1;
-	if (n == 0)
-		return (0);
-	while (n / 10)
+	nlen = 0;
+	do
+	{
 		nlen++;
+		n /= 10;
+	}
+	while (n);
 	return (nlen);
+}
+
+static int	ft_check_underflow(int base)
+{
+	int	int_min;
+
+	int_min = -2147483647 - 1;
+	return (base == int_min);
 }
 
 static char	*ft_itoaa(int n, int sign)
@@ -15,14 +25,18 @@ static char	*ft_itoaa(int n, int sign)
 	char	*nstr;
 	size_t	nlen;
 
-	nlen = ft_nbrlen(n); 
-	nstr = malloc(nlen + sign);
+	nlen = ft_nbrlen(n) + sign + 1;
+	nstr = malloc(nlen);
 	if (!nstr)
 		return (nstr);
-	nstr[nlen + sign] = '\0'; 
-	while (--nlen)
+	if (n == 0)
+		nstr[0] = '0';
+	nstr[--nlen] = '\0';
+	if (sign)
+		nstr[0] = '-';	
+	while (n)
         {
-		nstr[nlen] = (n % 10) + '0';
+		nstr[--nlen] = (n % 10) + '0';
                 n /= 10;
         }
 	return (nstr);
@@ -30,10 +44,14 @@ static char	*ft_itoaa(int n, int sign)
 
 char	*ft_itoa(int n)
 {
-	int		sign;
+	int	sign;
 
 	sign = 0;
 	if (n < 0)
 		sign = 1;
+	if (sign && !ft_check_underflow(n))
+		n = -n;
+	else
+		return (ft_strdup("-2147483648"));
 	return (ft_itoaa(n, sign));
 }
