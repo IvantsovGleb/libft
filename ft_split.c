@@ -1,3 +1,5 @@
+#include "libft.h"
+
 static char	**ft_memfree(char **arrs)
 {
 	size_t	i;
@@ -18,8 +20,8 @@ static size_t	ft_countokens(const char *s, char delim)
 	i = 0;
 	while (s[i])
 	{
-		if ((s[i + 1] && s[i] != delim && s[i + 1] == c))
-			|| (s[i] != delim && !s[i])
+		if ((s[i + 1] && s[i] != delim && s[i + 1] == delim)
+			|| (s[i] != delim && !s[i]))
 			count++;
 		i++;
 	}

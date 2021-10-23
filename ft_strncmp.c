@@ -1,8 +1,9 @@
+#include "libft.h"
+
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	char	*s11;
-	char	*s22;
-	char	*end;
+	const char	*s11;
+	const char	*s22;
 
 	s11 = s1;
 	s22 = s2;

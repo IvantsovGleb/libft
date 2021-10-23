@@ -1,6 +1,8 @@
+#include "libft.h"
+
 void	*ft_memcpy(void *s1, const void *s2, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (i < n)

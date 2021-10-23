@@ -1,3 +1,5 @@
+#include "libft.h"
+
 int	ft_memcmp(const void *b1, const void *b2, size_t len)
 {
 	const unsigned char	*p1;

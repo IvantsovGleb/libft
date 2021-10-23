@@ -1,3 +1,5 @@
+#include "libft.h"
+
 static size_t	ft_nbrlen(int n)
 {
 	size_t	nlen;

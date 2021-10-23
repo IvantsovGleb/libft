@@ -1,8 +1,10 @@
+#include "libft.h"
+
 void	ft_putnbr_fd(int n, int fd)
 {
-	const char	*nstr;
+	char	*nstr;
 
-	nstr = ft_atoi(n);
+	nstr = ft_itoa(n);
 	if (fd > 0 && nstr)
-		ft_putstr_fd(fd, str, ft_strlen(str) + 1);
+		ft_putstr_fd(nstr, fd);
 }
