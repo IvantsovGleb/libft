@@ -16,7 +16,6 @@ SRCMODULES 	= ft_atoi.c ft_isascii.c ft_memcmp.c ft_putendl_fd.c ft_strdup.c ft_
 
 OBJMODULES = $(SRCMODULES:.c=.o) 
 
-
 all: @$(NAME)
 
 $(NAME): $(OBJMODULES)
