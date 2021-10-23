@@ -16,7 +16,7 @@ SRCMODULES 	= ft_atoi.c ft_isascii.c ft_memcmp.c ft_putendl_fd.c ft_strdup.c ft_
 
 OBJMODULES = $(SRCMODULES:.c=.o) 
 
-all: @$(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJMODULES)
 	@ar crs $(NAME) $^
@@ -30,8 +30,6 @@ clean:
 fclean: clean
 	@$(RM) $(NAME)
 
-re:
-	fclean
-	all
+re: fclean all
 		
 .PHONY: all clean fclean re
