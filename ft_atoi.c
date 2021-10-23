@@ -18,8 +18,8 @@ static int	ft_check_overflow(int base, int offset)
 int	ft_atoi(const char *nptr)
 {
 	const char	*p;
-	int		sign;
-	int		base;
+	int			sign;
+	int			base;
 
 	p = nptr;
 	sign = 1;
@@ -35,7 +35,7 @@ int	ft_atoi(const char *nptr)
 			if (sign == 1)
 				return (2147483647);
 			else
-				return (-2147483648);
+				return (-2147483647 - 1);
 		}
 		base = base * 10 + (*p++ - '0');
 	}

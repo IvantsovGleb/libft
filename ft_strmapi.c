@@ -4,7 +4,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 
 	i = 0;
-	sdup = ft_strdup(s); 
+	sdup = ft_strdup(s);
 	if (!s || !f || !sdup)
 		return (NULL);
 	while (sdup[i])

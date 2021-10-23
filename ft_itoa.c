@@ -2,13 +2,12 @@ static size_t	ft_nbrlen(int n)
 {
 	size_t	nlen;
 
-	nlen = 0;
-	do
+	nlen = 1;
+	while (n)
 	{
 		nlen++;
 		n /= 10;
 	}
-	while (n);
 	return (nlen);
 }
 
@@ -33,12 +32,12 @@ static char	*ft_itoaa(int n, int sign)
 		nstr[0] = '0';
 	nstr[--nlen] = '\0';
 	if (sign)
-		nstr[0] = '-';	
+		nstr[0] = '-';
 	while (n)
-        {
+	{
 		nstr[--nlen] = (n % 10) + '0';
-                n /= 10;
-        }
+		n /= 10;
+	}
 	return (nstr);
 }
 

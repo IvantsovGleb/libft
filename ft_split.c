@@ -1,6 +1,6 @@
 static char	**ft_memfree(char **arrs)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	while (arrs[i])
@@ -45,14 +45,14 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	start = 0;
 	if (!s)
-		return (NULL);	
+		return (NULL);
 	arrs = malloc((ft_countokens(s, c) + 1) * sizeof(char *));
 	if (!arrs)
 		return (arrs);
 	while (s[i++] == c)
 		start++;
 	i = 0;
-	while(i < ft_countokens(s, c))
+	while (i < ft_countokens(s, c))
 	{
 		arrs[i] = ft_substr(s, (unsigned char)start, ft_slenc(&s[start], c));
 		if (!arrs[i++])
