@@ -5,7 +5,7 @@ static size_t	ft_nbrlen(int n)
 	size_t	nlen;
 
 	nlen = 1;
-	while (n)
+	while (n / 10)
 	{
 		nlen++;
 		n /= 10;
@@ -52,7 +52,7 @@ char	*ft_itoa(int n)
 		sign = 1;
 	if (sign && !ft_check_underflow(n))
 		n = -n;
-	else
+	else if (ft_check_underflow(n))
 		return (ft_strdup("-2147483648"));
 	return (ft_itoaa(n, sign));
 }

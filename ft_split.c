@@ -21,7 +21,7 @@ static size_t	ft_countokens(const char *s, char delim)
 	while (s[i])
 	{
 		if ((s[i + 1] && s[i] != delim && s[i + 1] == delim)
-			|| (s[i] != delim && !s[i]))
+			|| (s[i] != delim && !s[i + 1]))
 			count++;
 		i++;
 	}

@@ -11,7 +11,7 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 		return (NULL);
 	while (sdup[i])
 	{
-		sdup[i] = f(i, f(i, sdup[i]));
+		sdup[i] = f(i, sdup[i]);
 		i++;
 	}
 	return (sdup);
