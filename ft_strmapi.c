@@ -6,8 +6,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (NULL);
 	sdup = ft_strdup(s);
-	if (!s || !f || !sdup)
+	if (!f || !sdup)
 		return (NULL);
 	while (sdup[i])
 	{
