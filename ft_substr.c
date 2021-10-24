@@ -3,12 +3,13 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*sub;
-	size_t	slen;
+    size_t	slen;
 
-	sub = "";
+    if (!s)
+        return (NULL);
 	slen = ft_strlen(s);
-	if (start == slen)
-		return (sub);
+	if (start >= slen)
+		return (ft_calloc(1, 1));
 	if (start + len > slen)
 		len = slen - start;
 	sub = (char *)malloc(len + 1);
