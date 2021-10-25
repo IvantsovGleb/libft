@@ -19,16 +19,16 @@ OBJMODULES = $(SRCMODULES:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJMODULES)
-	@ar crs $(NAME) $^
+	ar crs $(NAME) $?
 
-$(OBJMOULES): $(SRCMODULES) $(HEADER)
-	@$(CC) $(CFLAGS) -c $< -o $@
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 clean:
-	@$(RM) *.o
+	$(RM) *.o
 
 fclean: clean
-	@$(RM) $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 		
