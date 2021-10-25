@@ -6,7 +6,7 @@
 /*   By: fsinestr <fsinestr@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/25 18:55:29 by fsinestr         ###   ########.fr       */
+/*   Updated: 2021/10/25 19:20:36 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1) - 1;
 	while (len && ft_strchr(set, s1[len]))
 		len--;
-	if (!ft_strncmp(s1, &s1[start], ft_strlen(s1)) && len == ft_strlen(s1))
+	if (!ft_strncmp(s1, &s1[start], ft_strlen(s1)) && s1[len + 1] == '\0')
 		return (ft_substr(s1, start, ft_strlen(s1)));
 	if (len == 0)
 		return (ft_calloc(1, 1));
