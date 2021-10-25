@@ -6,7 +6,7 @@
 /*   By: fsinestr <fsinestr@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/25 14:48:30 by fsinestr         ###   ########.fr       */
+/*   Updated: 2021/10/25 21:09:35 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	char		*d;
 	const char	*s;
-	char		*end;
 
 	d = dst;
 	s = src;
-	end = dst + dstsize;
-	while (d < end && *s != '\0')
+	while (dstsize && *s != '\0')
+	{
 		*d++ = *s++;
-	if (d < end)
+		dstsize--;
+	}
+	if (dstsize)
 		*d = 0;
 	else
 		*(--d) = 0;

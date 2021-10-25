@@ -6,7 +6,7 @@
 /*   By: fsinestr <fsinestr@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/25 14:48:30 by fsinestr         ###   ########.fr       */
+/*   Updated: 2021/10/25 20:16:44 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *s, int c)
 	pos = NULL;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			pos = &s[i];
 		i++;
 	}
-	if (c == '\0')
+	if ((char)c == '\0')
 		return ((char *)s + ft_strlen(s));
 	return ((char *)pos);
 }
