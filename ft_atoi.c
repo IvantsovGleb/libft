@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fsinestr <fsinestr@student.21-school.ru>   +#+  +:+       +#+        */
+/*   By: fsinestr <fsinestr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/25 16:28:54 by fsinestr         ###   ########.fr       */
+/*   Updated: 2021/10/26 17:03:37 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,11 @@ static int	ft_isspace(int c)
 	return (0);
 }
 
-static int	ft_check_overflow(int base, int offset)
-{
-	int	int_max;
-
-	int_max = 2147483647;
-	return (base > int_max / 10
-		|| (base == int_max / 10 && offset >= int_max % 10));
-}
-
 int	ft_atoi(const char *nptr)
 {
 	const char	*p;
-	int			sign;
-	int			base;
+	long		sign;
+	long		base;
 
 	p = nptr;
 	sign = 1;
@@ -44,14 +35,14 @@ int	ft_atoi(const char *nptr)
 		sign = 1 - 2 * (*p++ == '-');
 	while (ft_isdigit((unsigned char)*p))
 	{
-		if (ft_check_overflow(base, *p - '0'))
+		if (base < 0)
 		{
 			if (sign == 1)
-				return (2147483647);
-			else
-				return (-2147483647 - 1);
+				return (-1);
+			if (sign == -1)
+				return (0);
 		}
 		base = base * 10 + (*p++ - '0');
 	}
-	return (sign * base);
+	return ((int)(sign * base));
 }
