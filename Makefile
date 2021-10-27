@@ -29,5 +29,9 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+bonus:	ft_lstnew.c
+	$(CC) $(CFLAGS) -c $< -o ft_lstnew.o
+	ar crs $(NAME) ft_lstnew.o
 		
 .PHONY: all clean fclean re
