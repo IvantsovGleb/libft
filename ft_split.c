@@ -6,7 +6,7 @@
 /*   By: fsinestr <fsinestr@student.21-school.ru>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/25 14:48:29 by fsinestr         ###   ########.fr       */
+/*   Updated: 2021/10/27 15:08:17 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,24 +56,21 @@ char	**ft_split(char const *s, char c)
 	size_t	i;
 	size_t	start;
 
-	i = 0;
-	start = 0;
 	if (!s)
 		return (NULL);
 	arrs = malloc((ft_countokens(s, c) + 1) * sizeof(char *));
 	if (!arrs)
 		return (arrs);
-	while (s[i++] == c)
-		start++;
 	i = 0;
+	start = 0;
 	while (i < ft_countokens(s, c))
 	{
+		while (s[start] == c)
+			start++;
 		arrs[i] = ft_substr(s, (unsigned char)start, ft_slenc(&s[start], c));
 		if (!arrs[i++])
 			return (ft_memfree(arrs));
 		start = start + ft_slenc(&s[start], c);
-		while (s[start] == c)
-			start++;
 	}
 	arrs[i] = NULL;
 	return (arrs);
