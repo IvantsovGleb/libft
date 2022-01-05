@@ -1,32 +1,47 @@
-CFLAGS		= -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fsinestr <fsinestr@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/01/05 18:14:43 by fsinestr          #+#    #+#              #
+#    Updated: 2022/01/05 21:29:28 by fsinestr         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-RM			= rm -f
+cflags		= -Wall -Wextra -Werror
 
-NAME 		= libft.a
+rm			= rm -rf
 
-HEADER 		= libft.h
+name 		= libft.a
 
-SRCMODULES 	= ft_atoi.c ft_isascii.c ft_memcmp.c ft_putendl_fd.c ft_strdup.c ft_strlen.c ft_strtrim.c \
-			ft_bzero.c ft_isdigit.c ft_memcpy.c ft_putnbr_fd.c ft_striteri.c ft_strmapi.c ft_substr.c \
-			ft_calloc.c ft_isprint.c ft_memmove.c ft_putstr_fd.c ft_strjoin.c ft_strncmp.c ft_tolower.c \
-			ft_isalnum.c ft_itoa.c ft_memset.c ft_split.c ft_strlcat.c ft_strnstr.c	ft_toupper.c ft_isalpha.c \
-			ft_memchr.c ft_putchar_fd.c ft_strchr.c ft_strlcpy.c ft_strrchr.c
+header 		= libft.h
 
-OBJMODULES = $(SRCMODULES:.c=.o) 
+srcmodules = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_tolower.c ft_toupper.c \
+				ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_memcmp.c ft_memchr.c \
+				ft_strlen.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strrchr.c ft_strncmp.c ft_strnstr.c \
+				ft_strdup.c ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_strmapi.c ft_striteri.c \
+				ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c \
+				ft_atoi.c ft_itoa.c ft_calloc.c \
+				ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c \
+				ft_lstiter.c ft_lstmap.c
 
-all: $(NAME)
+objmodules = $(srcmodules:.c=.o)
 
-$(NAME): $(OBJMODULES)
-	ar crs $(NAME) $?
+all: $(name)
 
-%.o: %.c $(HEADER)
-	$(CC) $(CFLAGS) -c $< -o $@ 
+$(name): $(objmodules)
+	ar -crs $(name) $?
+
+$(objmodules): %.o: %.c $(header)
+	$(CC) $(cflags) -c $< -o $@
 
 clean:
-	$(RM) *.o
+	$(rm) *.o
 
 fclean: clean
-	$(RM) $(NAME)
+	$(rm) $(name)
 
 re: fclean all
 		
