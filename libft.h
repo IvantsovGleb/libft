@@ -16,6 +16,15 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define ULONG_MAX  (~0UL)
+# define LONG_MAX   ((long)(ULONG_MAX >> 1))
+# define LONG_MIN   (~LONG_MAX)
+# define UINT_MAX   (~0U)
+# define INT_MAX    ((int)(UINT_MAX >> 1))
+# define INT_MIN    (~INT_MAX)
+
+# define ERANGE     1
+
 typedef struct s_list
 {
 	void			*content;
@@ -27,6 +36,8 @@ int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int     ft_isspace(int c);
+int     ft_isupper(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
@@ -38,6 +49,7 @@ int		ft_memcmp(const void *b1, const void *b2, size_t len);
 void	*ft_memchr(const void *s, int c, size_t n);
 
 int		ft_atoi(const char *nptr);
+long    ft_strtol(const char *nptr, char **endptr, int base, int *errn);
 char	*ft_itoa(int n);
 void	*ft_calloc(size_t number, size_t size);
 
