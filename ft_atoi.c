@@ -6,11 +6,17 @@
 /*   By: fsinestr <fsinestr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/25 14:36:45 by fsinestr          #+#    #+#             */
-/*   Updated: 2021/10/26 17:03:37 by fsinestr         ###   ########.fr       */
+/*   Updated: 2022/03/31 19:53:58 by fsinestr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+static int	ft_isspace(int c)
+{
+	return (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ');
+}
 
 int	ft_atoi(const char *nptr)
 {
